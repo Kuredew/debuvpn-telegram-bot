@@ -1,0 +1,14 @@
+[Unit]
+Description=Python DebuVPN Transactional Generator Bot
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/trx-template-generator
+ExecStart=/root/day-counter-bot/.venv/bin/python /root/day-counter-bot/bot.py
+Restart=always
+RestartSec=3
+TimeoutStopSec=10s
+
+[Install]
+WantedBy=multi-user.target
