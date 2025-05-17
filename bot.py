@@ -21,3 +21,4 @@ callback_handler.register_callback(bot)
 
 
 print('Bot Started.')
+#bot.polling()

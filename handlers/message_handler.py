@@ -13,7 +13,7 @@ def register_handler(bot):
     @bot.message_handler(commands=['start'])
     def handler(message):
         print('Detected')
-        welcome_handler(message, bot)
+        welcome_handler(message.chat.id, bot)
 
     @bot.message_handler(func=lambda message: True)
     def handle_all_message(message):
