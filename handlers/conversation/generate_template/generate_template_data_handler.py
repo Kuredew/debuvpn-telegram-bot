@@ -14,9 +14,7 @@ def callback_handler(chat_id, data, bot):
     elif type == 'back':
         message_handler()
 
-def message_handler(message, bot):
-    chat_id = message.chat.id
-    text = message.text
+def message_handler(chat_id, text, bot):
 
     if state[chat_id]['type'] == 'name':
         state[chat_id]['name'] = text

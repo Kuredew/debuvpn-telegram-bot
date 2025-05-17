@@ -25,4 +25,4 @@ def register_handler(bot):
             return
 
         if state_handler.state[message.chat.id]['conversation'] == 'generate_template':
-            generate_template_data_handler.message_handler(message.chat.id, bot)
+            generate_template_data_handler.message_handler(message.chat.id, message.text, bot)
