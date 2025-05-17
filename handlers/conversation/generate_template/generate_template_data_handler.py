@@ -1,5 +1,5 @@
 from handlers.conversation.generate_template import generate_template_conversation
-from handlers import state_handler
+from handlers import state_handler, lobby_handler
 
 state = state_handler.state
 
@@ -12,7 +12,7 @@ def callback_handler(chat_id, data, bot):
 
         generate_template_conversation.ask_name(chat_id, bot)
     elif type == 'back':
-        message_handler()
+        lobby_handler.welcome_handler(chat_id, bot)
 
 def message_handler(chat_id, text, bot):
 
@@ -33,14 +33,14 @@ def message_handler(chat_id, text, bot):
 
         generate_template_conversation.ask_host(chat_id, bot)
     elif state[chat_id]['type'] == 'host':
-        if text == 'default':
+        if text == 'd':
             state[chat_id]['host'] = 'do.fiuzeanet.my.id'
         else:
             state[chat_id]['host'] = text
 
         generate_template_conversation.ask_provider(chat_id, bot)
     elif state[chat_id]['type'] == 'provider':
-        if text == 'default':
+        if text == 'd':
             state[chat_id]['provider'] = 'SG DigitalOcean'
         else:
             state[chat_id]['provider'] = text

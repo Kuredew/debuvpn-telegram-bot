@@ -1,6 +1,6 @@
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from handlers.conversation.generate_template import generate_template
-import json
+import json, config
 from handlers import state_handler
 
 state = state_handler.state
@@ -45,17 +45,17 @@ def ask_max_device(chat_id, bot):
 def ask_host(chat_id, bot):
     state[chat_id]['type'] = 'host'
 
-    bot.send_message(chat_id, 'Masukkan host VPN ( Default ) :')
+    bot.send_message(chat_id, 'Masukkan host VPN ( d for Default ) :')
 
 def ask_provider(chat_id, bot):
     state[chat_id]['type'] = 'provider'
 
-    bot.send_message(chat_id, 'Masukkan provider VPN ( Default ) :')
+    bot.send_message(chat_id, 'Masukkan provider VPN ( d for Default ) :')
 
 def generate(chat_id, bot):
     transaction_template = generate_template.generate(state[chat_id])
 
-    if chat_id == 1925069637:
+    if chat_id == config.USER_CHAT_ID:
         bot.send_message(chat_id, transaction_template, parse_mode='HTML')
     else:
         bot.send_message(chat_id, 'Bro 😂, yakali admin tidak memblok akses ini jir.')
