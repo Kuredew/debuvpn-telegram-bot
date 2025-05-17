@@ -1,5 +1,5 @@
 from handlers.conversation.generate_template import generate_template_conversation
-from handlers import state_handler, lobby_handler
+from handlers import state_handler
 
 state = state_handler.state
 
@@ -11,8 +11,6 @@ def callback_handler(chat_id, data, bot):
         state[chat_id]['account_type'] = data['account_type']
 
         generate_template_conversation.ask_name(chat_id, bot)
-    elif type == 'back':
-        lobby_handler.welcome_handler(chat_id, bot)
 
 def message_handler(chat_id, text, bot):
 

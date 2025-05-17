@@ -16,8 +16,7 @@ def ask_account_type(chat_id, bot):
         InlineKeyboardButton('SSH', callback_data=json.dumps({'type': 'account_type', 'account_type': 'ssh'})),
         InlineKeyboardButton('VMESS', callback_data=json.dumps({'type': 'account_type', 'account_type': 'vmess'})),
         InlineKeyboardButton('VLESS', callback_data=json.dumps({'type': 'account_type', 'account_type': 'vless'})),
-        InlineKeyboardButton('TROJAN', callback_data=json.dumps({'type': 'account_type', 'account_type': 'trojan'})),
-        InlineKeyboardButton('Back', callback_data=json.dumps({'type': 'back'}))
+        InlineKeyboardButton('TROJAN', callback_data=json.dumps({'type': 'account_type', 'account_type': 'trojan'}))
     )
 
     bot.send_message(chat_id, 'Silahkan pilih tipe akun.', reply_markup=markup)
