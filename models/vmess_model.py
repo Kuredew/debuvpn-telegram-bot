@@ -8,7 +8,7 @@ class Vmess:
 
         self.template = {
             "v": "2",
-            "ps": self.host,
+            "ps": self.username,
             "add": self.host,
             "port": None,
             "id": self.id,
@@ -25,7 +25,7 @@ class Vmess:
 
     def get_non_tls(self):
         template = self.template
-        self.template['ps'] += ' WS NTLS DebuVPN'
+        self.template['ps'] + ' WS NTLS DebuVPN'
         self.template['port'] = 80
         self.template['tls'] = ''
         self.template['sni'] = ''
@@ -34,7 +34,7 @@ class Vmess:
     
     def get_tls(self):
         template = self.template
-        self.template['ps'] += ' WS TLS DebuVPN'
+        self.template['ps'] + ' WS TLS DebuVPN'
         self.template['port'] = 443
         self.template['tls'] = 'tls'
         self.template['sni'] = self.host
@@ -43,7 +43,7 @@ class Vmess:
     
     def get_grpc(self):
         template = self.template
-        self.template['ps'] += ' GRPC DebuVPN'
+        self.template['ps'] + ' GRPC DebuVPN'
         self.template['port'] = 443
         self.template['net'] = 'grpc'
         self.template['type'] = 'gun'
